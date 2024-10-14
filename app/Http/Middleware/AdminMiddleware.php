@@ -14,14 +14,14 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-        $user = Auth::user()->load('role');
+        public function handle(Request $request, Closure $next): Response
+        {
+            $user = Auth::user()->load('role');
 
-        if ($user->role->id == 2) {
-            return $next($request);
+            if ($user->role->id == 1) {
+                return $next($request);
+            }
+
+            return response()->json(['error' => 'Access denied'], Response::HTTP_FORBIDDEN);
         }
-
-        return response()->json(['error' => 'Access denied'], Response::HTTP_FORBIDDEN);
-    }
 }

@@ -18,7 +18,7 @@ class UserSeederTable extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'Admin',
             'email' => 'admin@admin.com',
-            'role_id' => 2,
+            'role_id' => 1,
             'password' => Hash::make('password'),
         ]);
 
@@ -28,7 +28,7 @@ class UserSeederTable extends Seeder
                 'first_name' => fake()->firstName,
                 'last_name' => fake()->lastName,
                 'email' => fake()->email,
-                'role_id' => 1, // student role
+                'role_id' => 2, // student role
                 'password' => Hash::make('password'),
             ]);
         }
